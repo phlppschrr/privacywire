@@ -33,7 +33,7 @@ class TextformatterPrivacyWire extends Textformatter implements Module
         ];
     }
 
-    public function formatValue(Page $page, Field $field, &$str)
+    public function format(&$str)
     {
         // Replace privacywire-choose-cookies with button element
         $tag_search = $this->open_tag . "privacywire-choose-cookies" . $this->close_tag;
