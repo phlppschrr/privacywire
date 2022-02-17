@@ -445,6 +445,10 @@ class PrivacyWire {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    window.PrivacyWire = new PrivacyWire(PrivacyWireSettings)
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.PrivacyWireSettings) {
+    let configEl = document.getElementById('PrivacyWireConfig');
+    if (configEl) window.PrivacyWireSettings = JSON.parse(configEl.dataset.json);
+  }
+  if(window.PrivacyWireSettings) window.PrivacyWire = new PrivacyWire(window.PrivacyWireSettings);
 });
